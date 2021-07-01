@@ -1,34 +1,38 @@
-name: 'OWASP ZAP Full Scan'
-description: 'Scans the web application with the OWASP ZAP Full Scan'
+name: "OWASP ZAP API Scan"
+description: "Scans the web application with the OWASP ZAP API Scan"
 branding:
-  icon: 'zap'
-  color: 'blue'
+  icon: "zap"
+  color: "blue"
 inputs:
   token:
-    description: 'GitHub Token to create issues in the repository'
+    description: "GitHub Token to create issues in the repository"
     required: false
     default: ${{ github.token }}
   target:
-    description: 'Target URL'
+    description: "Target URL"
     required: true
+  format:
+    description: "Format openapi or soap"
+    required: false
+    default: openapi
   rules_file_name:
-    description: 'Relative path of the ZAP configuration file'
+    description: "Relative path of the ZAP configuration file"
     required: false
   docker_name:
-    description: 'The Docker file to be executed'
+    description: "The Docker file to be executed"
     required: true
-    default: 'owasp/zap2docker-stable'
+    default: "owasp/zap2docker-stable"
   cmd_options:
-    description: 'Additional command line options'
+    description: "Additional command line options"
     required: false
   issue_title:
-    description: 'The title for the GitHub issue to be created'
+    description: "The title for the GitHub issue to be created"
     required: false
-    default: 'ZAP Full Scan Report'
+    default: "ZAP API Scan Report"
   fail_action:
-    description: 'The action status will be set to fail if ZAP identifies any alerts during the full scan'
+    description: "The action status will be set to fail if ZAP identifies any alerts during the api scan"
     required: false
     default: false
 runs:
-  using: 'node12'
-  main: 'dist/index.js'
+  using: "node12"
+  main: "dist/index.js"

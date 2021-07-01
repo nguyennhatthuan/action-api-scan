@@ -1,7 +1,7 @@
 {
-  "name": "action-full-scan",
+  "name": "action-api-scan",
   "version": "1.0.0",
-  "description": "ZAP full scan action",
+  "description": "ZAP API scan action",
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zaproxy/action-full-scan.git"
+    "url": "git+https://github.com/nguyennhatthuan/action-api-scan.git"
   },
   "keywords": [
     "GitHub",
@@ -20,7 +20,7 @@
   ],
   "author": "ZAP Team",
   "bugs": {
-    "url": "https://github.com/zaproxy/action-full-scan/issues"
+    "url": "https://github.com/nguyennhatthuan/action-api-scan/issues"
   },
   "dependencies": {
     "@actions/artifact": "^0.2.0",

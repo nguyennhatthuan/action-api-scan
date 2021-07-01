@@ -1,10 +1,14 @@
-# ZAP Action Full Scan
+# Disclaimer
+
+I've forked this repo from [Action Full Scan](https://github.com/zaproxy/action-full-scan) for modifying to be Zap API scan
+
+# ZAP Action API Scan
 
 A GitHub Action for running the OWASP ZAP [Full Scan](https://www.zaproxy.org/docs/docker/full-scan/) to perform
-Dynamic Application Security Testing (DAST). 
+Dynamic Application Security Testing (DAST).
 
-The ZAP full scan action runs the ZAP spider against the specified target (by default with no time limit) followed by an 
-optional ajax spider scan and then a full active scan before reporting the results. The alerts will be maintained as a 
+The ZAP full scan action runs the ZAP spider against the specified target (by default with no time limit) followed by an
+optional ajax spider scan and then a full active scan before reporting the results. The alerts will be maintained as a
 GitHub issue in the corresponding repository.
 
 **WARNING** this action will perform attacks on the target website.
@@ -21,7 +25,7 @@ accessible URL.
 
 ### `docker_name`
 
-**Optional** The name of the docker file to be executed. By default the action runs the stable version of ZAP. But you can 
+**Optional** The name of the docker file to be executed. By default the action runs the stable version of ZAP. But you can
 configure the parameter to use the weekly builds.
 
 ### `rules_file_name`
@@ -33,7 +37,7 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 ```tsv
 10011	IGNORE	(Cookie Without Secure Flag)
 10015	IGNORE	(Incomplete or No Cache-control and Pragma HTTP Header Set)
-``` 
+```
 
 ### `cmd_options`
 
@@ -50,12 +54,13 @@ You do not have to create a dedicated token. Make sure to use the GitHub's defau
 
 ### `fail_action`
 
-**Optional** By default ZAP Docker container will fail with an [exit code](https://github.com/zaproxy/zaproxy/blob/efb404d38280dc9ecf8f88c9b0c658385861bdcf/docker/zap-full-scan.py#L31), 
+**Optional** By default ZAP Docker container will fail with an [exit code](https://github.com/zaproxy/zaproxy/blob/efb404d38280dc9ecf8f88c9b0c658385861bdcf/docker/zap-full-scan.py#L31),
 if it identifies any alerts. Set this option to `true` if you want to fail the status of the GitHub Scan if ZAP identifies any alerts during the scan.
 
 ## Example usage
 
 ** Basic **
+
 ```
 steps:
   - name: ZAP Scan
@@ -98,4 +103,4 @@ This is currently only available with the `owasp/zap2docker-weekly` or `owasp/za
 
 See [https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang) for the full set of locales currently supported.
 
-You can help improve ZAP translations via [https://crowdin.com/project/owasp-zap](https://crowdin.com/project/owasp-zap). 
+You can help improve ZAP translations via [https://crowdin.com/project/owasp-zap](https://crowdin.com/project/owasp-zap).
